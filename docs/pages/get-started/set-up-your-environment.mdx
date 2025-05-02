@@ -1,31 +1,22 @@
----
-title: Set up your environment
-description: Learn how to set up your development environment to start building with Expo.
-hideTOC: true
----
+import React from 'react';
+import { View, Text, Button } from 'react-native';
 
-import { DevelopmentEnvironmentInstructions } from '~/scenes/get-started/set-up-your-environment/DevelopmentEnvironmentInstructions';
-import { DevelopmentModeForm } from '~/scenes/get-started/set-up-your-environment/DevelopmentModeForm';
-import { PlatformAndDeviceForm } from '~/scenes/get-started/set-up-your-environment/PlatformAndDeviceForm';
+export default function App() {
+  return (
+    <View style={{ padding: 20 }}>
+      <Text>Nom: Matia Mbundu Emmanuel</Text>
+      <Text>Code: 1234</Text>
+      <Button title="VALIDER" onPress={() => alert('OK !')} />
+    </View>
+  );
+}expo start<Button title="📷 Prendre photo" onPress={() => {}} />
+<Button title="✏️ Ajouter note" onPress={() => {}} />MonApp/
+├── App.js       (Collez le code ci-dessus)
+└── package.json (Généré automatiquement)expo install expo-image-pickerimport * as ImagePicker from 'expo-image-picker';
 
-Let's set up a local development environment for running your project on Android and iOS.
-
-## Where would you like to develop?
-
-We recommend using a real device to develop, since you'll get to see exactly what your users will see.
-
-<PlatformAndDeviceForm />
-
-## How would you like to develop?
-
-Expo Go is a sandbox for trying out Expo quickly. A development build is a build of your own app that includes Expo's developer tools.
-
-<DevelopmentModeForm />
-
----
-
-<DevelopmentEnvironmentInstructions />
-
-## Next step
-
-You have a project and a development environment. Now it's time to start developing.
+const pickImage = async () => {
+  let result = await ImagePicker.launchImageLibraryAsync();
+  if (!result.cancelled) {
+    console.log(result.uri); // /sdcard/DCIM/photo.jpg
+  }
+};
